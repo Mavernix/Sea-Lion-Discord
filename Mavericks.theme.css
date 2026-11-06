@@ -2,7 +2,9 @@
  * @name Mavericks
  * @author pruefsumme
  * @description OS X 10.9 Mavericks look for Discord. Grey unified toolbar, Finder sidebar, Aqua buttons, Dock server list.
- * @version 1.0.0
+ * @version 1.0.1
+ * @source https://github.com/Mavernix/Sea-Lion-Discord
+ * @updateUrl https://raw.githubusercontent.com/Mavernix/Sea-Lion-Discord/main/Mavericks.theme.css
  */
 
 /* settings - paste the :root block into custom css to override, that way updates don't wipe it */
@@ -385,45 +387,45 @@ pre,
 }
 
 /* ---- titlebar ---- */
-[class^="base_"] > [class^="bar_"] {
+:is([class^="base_"], [class*=" base_"]) > :is([class^="bar_"], [class*=" bar_"]) {
     background: linear-gradient(var(--mav-toolbar-top), var(--mav-toolbar-mid));
     box-shadow: inset 0 1px 0 var(--mav-titlebar-top-line);
 }
 
-[class^="base_"] > [class^="bar_"] [class^="title_"] {
+:is([class^="base_"], [class*=" base_"]) > :is([class^="bar_"], [class*=" bar_"]) :is([class^="title_"], [class*=" title_"]) {
     color: var(--mav-toolbar-text);
     font-size: 13px;
     text-shadow: var(--mav-engrave);
 }
 
-[class^="base_"] > [class^="bar_"] [class^="title_"] [class*="defaultColor_"] {
+:is([class^="base_"], [class*=" base_"]) > :is([class^="bar_"], [class*=" bar_"]) :is([class^="title_"], [class*=" title_"]) [class*="defaultColor_"] {
     color: inherit;
     font-weight: 400;
 }
 
 /* window buttons + back/forward, just grey glyphs. close/min/max -> x - + */
-[class^="bar_"] [class*="winButtons_"],
-[class^="base_"] > [class^="bar_"] [class*="backForwardButtons_"] {
+:is([class^="bar_"], [class*=" bar_"]) [class*="winButtons_"],
+:is([class^="base_"], [class*=" base_"]) > :is([class^="bar_"], [class*=" bar_"]) [class*="backForwardButtons_"] {
     display: flex;
     align-items: center;
     gap: 2px;
     height: 100%;
 }
 
-[class^="bar_"] [class*="winButtons_"] {
+:is([class^="bar_"], [class*=" bar_"]) [class*="winButtons_"] {
     padding-right: 6px;
 }
 
-[class^="base_"] > [class^="bar_"] [class*="backForwardButtons_"] {
+:is([class^="base_"], [class*=" base_"]) > :is([class^="bar_"], [class*=" bar_"]) [class*="backForwardButtons_"] {
     padding-left: 6px;
 }
 
-[class^="bar_"] [class*="winButtons_"]::before {
+:is([class^="bar_"], [class*=" bar_"]) [class*="winButtons_"]::before {
     display: none;
 }
 
-[class^="bar_"] [class*="winButtons_"] > [class*="winButton_"],
-[class^="base_"] > [class^="bar_"] [class*="backForwardButtons_"] > [class*="button_"] {
+:is([class^="bar_"], [class*=" bar_"]) [class*="winButtons_"] > [class*="winButton_"],
+:is([class^="base_"], [class*=" base_"]) > :is([class^="bar_"], [class*=" bar_"]) [class*="backForwardButtons_"] > [class*="button_"] {
     width: 22px;
     height: 22px;
     margin: 0;
@@ -439,68 +441,68 @@ pre,
     opacity: 1;
 }
 
-[class^="base_"] > [class^="bar_"] [class*="backForwardButtons_"] > [class*="button_"] svg {
+:is([class^="base_"], [class*=" base_"]) > :is([class^="bar_"], [class*=" bar_"]) [class*="backForwardButtons_"] > [class*="button_"] svg {
     width: 14px;
     height: 14px;
     color: inherit;
     filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.7));
 }
 
-[class^="bar_"] [class*="winButtons_"] > [class*="winButton_"] > * {
+:is([class^="bar_"], [class*=" bar_"]) [class*="winButtons_"] > [class*="winButton_"] > * {
     display: none;
 }
 
-[class^="bar_"] [class*="winButtons_"] > [class*="winButton_"]::before {
+:is([class^="bar_"], [class*=" bar_"]) [class*="winButtons_"] > [class*="winButton_"]::before {
     content: "+";
     font: 400 17px/1 var(--mav-font);
     color: inherit;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
-[class^="bar_"] [class*="winButtons_"] > [aria-label="Minimize"]::before,
-[class^="bar_"] [class*="winButtons_"] > [class*="winButtonMinMax_"]:first-child::before {
+:is([class^="bar_"], [class*=" bar_"]) [class*="winButtons_"] > [aria-label="Minimize"]::before,
+:is([class^="bar_"], [class*=" bar_"]) [class*="winButtons_"] > [class*="winButtonMinMax_"]:first-child::before {
     content: "\2212";
 }
 
-[class^="bar_"] [class*="winButtons_"] > [class*="winButtonClose_"]::before {
+:is([class^="bar_"], [class*=" bar_"]) [class*="winButtons_"] > [class*="winButtonClose_"]::before {
     content: "\00d7";
     font-size: 19px;
 }
 
-[class^="bar_"] [class*="winButtons_"] > [class*="winButton_"]:hover,
-[class^="base_"] > [class^="bar_"] [class*="backForwardButtons_"] > [class*="button_"]:hover {
+:is([class^="bar_"], [class*=" bar_"]) [class*="winButtons_"] > [class*="winButton_"]:hover,
+:is([class^="base_"], [class*=" base_"]) > :is([class^="bar_"], [class*=" bar_"]) [class*="backForwardButtons_"] > [class*="button_"]:hover {
     background: none;
     color: var(--mav-glyph-hover);
 }
 
-[class^="bar_"] [class*="winButtons_"] > [class*="winButton_"]:active,
-[class^="base_"] > [class^="bar_"] [class*="backForwardButtons_"] > [class*="button_"]:active {
+:is([class^="bar_"], [class*=" bar_"]) [class*="winButtons_"] > [class*="winButton_"]:active,
+:is([class^="base_"], [class*=" base_"]) > :is([class^="bar_"], [class*=" bar_"]) [class*="backForwardButtons_"] > [class*="button_"]:active {
     color: var(--mav-glyph-pressed);
 }
 
-[class^="base_"] > [class^="bar_"] [class*="backForwardButtons_"] > [class*="disabled_"] {
+:is([class^="base_"], [class*=" base_"]) > :is([class^="bar_"], [class*=" bar_"]) [class*="backForwardButtons_"] > [class*="disabled_"] {
     color: var(--mav-glyph-disabled);
 }
 
-/* discord shows a second copy of the buttons over settings etc, hide ours or they double up */
-#app-mount:has([class*="systemBar_"][class*="show_"]) [class^="base_"] > [class^="bar_"] [class*="winButtons_"] {
+/* discord shows a second copy of the buttons over settings etc, hide ours or they double up (sibling selector, a :has() on #app-mount made every hover restyle the whole app) */
+#app-mount > [class*="systemBar_"][class*="show_"] ~ * :is([class^="base_"], [class*=" base_"]) > :is([class^="bar_"], [class*=" bar_"]) [class*="winButtons_"] {
     visibility: hidden;
 }
 
 /* inbox, help */
-[class^="base_"] > [class^="bar_"] [class*="trailing_"] [class*="clickable_"] {
+:is([class^="base_"], [class*=" base_"]) > :is([class^="bar_"], [class*=" bar_"]) [class*="trailing_"] [class*="clickable_"] {
     color: var(--mav-glyph);
     filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.7));
 }
 
-[class^="base_"] > [class^="bar_"] [class*="trailing_"] [class*="clickable_"]:hover {
+:is([class^="base_"], [class*=" base_"]) > :is([class^="bar_"], [class*=" bar_"]) [class*="trailing_"] [class*="clickable_"]:hover {
     color: var(--mav-glyph-hover);
     background: none;
 }
 
 /* ---- toolbar row (server name, dm search, channel header) ---- */
 [class*="sidebarList_"] > nav > header,
-[class*="sidebarList_"] [class^="header_"]:has([class*="guildDropdown_"]),
+[class*="sidebarList_"] :is([class^="header_"], [class*=" header_"]):has([class*="guildDropdown_"]),
 [class*="privateChannels_"] > [class*="searchBar_"],
 [class*="chat_"] > [class*="subtitleContainer_"] > section,
 section[class*="container_"]:has(> [class*="upperContainer_"]) {
@@ -512,7 +514,7 @@ section[class*="container_"]:has(> [class*="upperContainer_"]) {
 
 /* sidebar starts 1px higher than the chat so make its header 1px taller, lines up now */
 [class*="sidebarList_"] > nav > header,
-[class*="sidebarList_"] [class^="header_"]:has([class*="guildDropdown_"]),
+[class*="sidebarList_"] :is([class^="header_"], [class*=" header_"]):has([class*="guildDropdown_"]),
 [class*="privateChannels_"] > [class*="searchBar_"] {
     box-sizing: border-box;
     height: 50px;
@@ -520,37 +522,32 @@ section[class*="container_"]:has(> [class*="upperContainer_"]) {
     border-top: 1px solid var(--mav-toolbar-mid);
 }
 
-[class*="sidebarList_"] {
-    border: none;
-    border-radius: 0;
-}
-
 [class*="sidebarList_"] [class*="guildDropdown_"] h2,
 [class*="chat_"] > [class*="subtitleContainer_"] h1,
 [class*="chat_"] > [class*="subtitleContainer_"] [class*="title__"],
-section:has(> [class*="upperContainer_"]) [class*="title_"] {
+section > :is([class*="upperContainer_"], [class*="upperContainer_"] ~ *) [class*="title_"] {
     color: var(--mav-toolbar-text);
     text-shadow: var(--mav-engrave);
 }
 
 /* topic fade overlay looks wrong on the gradient, it's ellipsized anyway */
-section:has(> [class*="upperContainer_"]) [class*="children_"]::after {
+section > :is([class*="upperContainer_"], [class*="upperContainer_"] ~ *) [class*="children_"]::after {
     display: none;
 }
 
-section:has(> [class*="upperContainer_"]) [class*="topic_"] {
+section > :is([class*="upperContainer_"], [class*="upperContainer_"] ~ *) [class*="topic_"] {
     color: #4d4d4d;
     text-shadow: var(--mav-engrave);
 }
 
-section:has(> [class*="upperContainer_"]) [class*="divider_"] {
+section > :is([class*="upperContainer_"], [class*="upperContainer_"] ~ *) [class*="divider_"] {
     background: rgba(0, 0, 0, 0.25);
 }
 
 /* finder style toolbar buttons */
-section:has(> [class*="upperContainer_"]) [class*="toolbar_"] > [class*="iconWrapper_"],
-section:has(> [class*="upperContainer_"]) [class*="toolbar_"] > div > [class*="iconWrapper_"],
-section:has(> [class*="upperContainer_"]) [class*="toolbar_"] > [class*="clickable_"] {
+section > :is([class*="upperContainer_"], [class*="upperContainer_"] ~ *) [class*="toolbar_"] > [class*="iconWrapper_"],
+section > :is([class*="upperContainer_"], [class*="upperContainer_"] ~ *) [class*="toolbar_"] > div > [class*="iconWrapper_"],
+section > :is([class*="upperContainer_"], [class*="upperContainer_"] ~ *) [class*="toolbar_"] > [class*="clickable_"] {
     width: 34px;
     height: 24px;
     margin: 0 3px;
@@ -563,25 +560,25 @@ section:has(> [class*="upperContainer_"]) [class*="toolbar_"] > [class*="clickab
     color: #3b3b3b;
 }
 
-section:has(> [class*="upperContainer_"]) [class*="toolbar_"] [class*="iconWrapper_"] [class*="icon_"] {
+section > :is([class*="upperContainer_"], [class*="upperContainer_"] ~ *) [class*="toolbar_"] [class*="iconWrapper_"] [class*="icon_"] {
     color: #3b3b3b;
     width: 18px;
     height: 18px;
     filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.55));
 }
 
-section:has(> [class*="upperContainer_"]) [class*="toolbar_"] [class*="iconWrapper_"]:active,
-section:has(> [class*="upperContainer_"]) [class*="toolbar_"] [class*="selected_"][class*="iconWrapper_"] {
+section > :is([class*="upperContainer_"], [class*="upperContainer_"] ~ *) [class*="toolbar_"] [class*="iconWrapper_"]:active,
+section > :is([class*="upperContainer_"], [class*="upperContainer_"] ~ *) [class*="toolbar_"] [class*="selected_"][class*="iconWrapper_"] {
     background: linear-gradient(#8f8f8f, #a5a5a5 50%, #9a9a9a 52%, #aeaeae);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.35), 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
-section:has(> [class*="upperContainer_"]) [class*="toolbar_"] [class*="selected_"][class*="iconWrapper_"] [class*="icon_"] {
+section > :is([class*="upperContainer_"], [class*="upperContainer_"] ~ *) [class*="toolbar_"] [class*="selected_"][class*="iconWrapper_"] [class*="icon_"] {
     color: #1d1d1d;
 }
 
 /* ---- search fields ---- */
-section:has(> [class*="upperContainer_"]) [class*="search_"] [class*="searchBar_"] {
+section > :is([class*="upperContainer_"], [class*="upperContainer_"] ~ *) [class*="search_"] [class*="searchBar_"] {
     background: linear-gradient(#f3f3f3, #ffffff 30%);
     border: 1px solid;
     border-color: #8d8d8d #a2a2a2 #b8b8b8;
@@ -591,7 +588,7 @@ section:has(> [class*="upperContainer_"]) [class*="search_"] [class*="searchBar_
     margin-top: 4px;
 }
 
-section:has(> [class*="upperContainer_"]) [class*="search_"] [class*="searchBar_"]:focus-within {
+section > :is([class*="upperContainer_"], [class*="upperContainer_"] ~ *) [class*="search_"] [class*="searchBar_"]:focus-within {
     box-shadow: var(--mav-focus-ring);
 }
 
@@ -675,14 +672,14 @@ nav[class*="guilds_"] [class*="guildSeparator_"] {
 }
 
 /* ---- channel / dm list ---- */
-[class*="sidebar_"][class*="theme-"],
-[class*="sidebarList_"] {
+[class*="sidebar_"][class*="theme-"] {
     background: transparent;
 }
 
 [class*="sidebarList_"] {
     background: linear-gradient(var(--mav-sidebar-top), var(--mav-sidebar-bottom));
-    border-right: none;
+    border: none;
+    border-radius: 0;
     box-shadow: inset -1px 0 0 var(--mav-sidebar-line);
 }
 
@@ -871,7 +868,7 @@ main[class*="chatContent_"],
 }
 
 /* fix seam above the chat header */
-[class^="chat_"][data-has-border] {
+:is([class^="chat_"], [class*=" chat_"])[data-has-border] {
     border-top-color: var(--mav-toolbar-mid);
 }
 
@@ -1212,6 +1209,9 @@ textarea[class*="textArea_"]:focus {
 [class*="wrapper_"][class*="container_"][class*="lg_"]:has(> input) {
     min-height: 24px;
     height: 24px;
+    /* fix: text sat a few px low, the icon was taller than the field */
+    flex-wrap: nowrap;
+    align-content: center;
 }
 
 [class*="wrapper_"][class*="container_"][class*="md_"] > input,
@@ -1221,15 +1221,8 @@ textarea[class*="textArea_"]:focus {
     padding-block: 0;
 }
 
-/* fix: text sat a few px low, the icon was taller than the field */
-[class*="wrapper_"][class*="container_"][class*="md_"]:has(> input),
-[class*="wrapper_"][class*="container_"][class*="lg_"]:has(> input) {
-    flex-wrap: nowrap;
-    align-content: center;
-}
-
-[class*="wrapper_"][class*="container_"][class*="md_"]:has(> input) > [class*="icon_"],
-[class*="wrapper_"][class*="container_"][class*="lg_"]:has(> input) > [class*="icon_"] {
+[class*="wrapper_"][class*="container_"][class*="md_"] > [class*="icon_"]:not(input),
+[class*="wrapper_"][class*="container_"][class*="lg_"] > [class*="icon_"]:not(input) {
     height: 22px;
     min-height: 0;
     align-self: center;
@@ -1312,7 +1305,6 @@ div[class*="menu_"]:has(> [class*="scroller_"] [role="menuitem"]) {
     border-radius: 5px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.32);
     padding: 4px 0;
-    backdrop-filter: blur(16px) saturate(1.4);
 }
 
 [class*="menu_"] [class*="scroller_"] {
@@ -1471,12 +1463,12 @@ div[class*="popout_"][role="dialog"] {
 }
 
 /* inline var(--text-muted) on these */
-aside[class*="sidebar_"]:has(nav[aria-label]) [class*="sectionLabel_"] {
+aside[class*="sidebar_"] > :is(nav[aria-label], [class*="fixedContent_"]) [class*="sectionLabel_"] {
     --text-muted: var(--mav-sidebar-heading);
 }
 
-aside[class*="sidebar_"]:has(nav[aria-label]) [class*="label_"],
-aside[class*="sidebar_"]:has(nav[aria-label]) [class*="sectionLabel_"] h3 {
+aside[class*="sidebar_"] > :is(nav[aria-label], [class*="fixedContent_"]) [class*="label_"],
+aside[class*="sidebar_"] > :is(nav[aria-label], [class*="fixedContent_"]) [class*="sectionLabel_"] h3 {
     color: var(--mav-sidebar-heading);
     font-size: 11px;
     font-weight: 700;
@@ -1484,16 +1476,16 @@ aside[class*="sidebar_"]:has(nav[aria-label]) [class*="sectionLabel_"] h3 {
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
-aside[class*="sidebar_"]:has(nav[aria-label]) [class^="item_"] {
+aside[class*="sidebar_"] > :is(nav[aria-label], [class*="fixedContent_"]) :is([class^="item_"], [class*=" item_"]) {
     border-radius: 0;
     color: #1d1d1d;
 }
 
-aside[class*="sidebar_"]:has(nav[aria-label]) [class^="item_"]:hover:not([class*="active_"]) {
+aside[class*="sidebar_"] > :is(nav[aria-label], [class*="fixedContent_"]) :is([class^="item_"], [class*=" item_"]):hover:not([class*="active_"]) {
     background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3)) center / 100% 24px no-repeat;
 }
 
-aside[class*="sidebar_"]:has(nav[aria-label]) [class^="item_"][class*="active_"]:not([class*="subnav"]) {
+aside[class*="sidebar_"] > :is(nav[aria-label], [class*="fixedContent_"]) :is([class^="item_"], [class*=" item_"])[class*="active_"]:not([class*="subnav"]) {
     background: var(--mav-select-band) center / 100% 24px no-repeat;
     box-shadow: none;
     color: #fff;
@@ -1501,24 +1493,24 @@ aside[class*="sidebar_"]:has(nav[aria-label]) [class^="item_"][class*="active_"]
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
 
-aside[class*="sidebar_"]:has(nav[aria-label]) [class^="item_"][class*="active_"] svg,
-aside[class*="sidebar_"]:has(nav[aria-label]) [class^="item_"][class*="active_"] [class*="body-md"] {
+aside[class*="sidebar_"] > :is(nav[aria-label], [class*="fixedContent_"]) :is([class^="item_"], [class*=" item_"])[class*="active_"] svg,
+aside[class*="sidebar_"] > :is(nav[aria-label], [class*="fixedContent_"]) :is([class^="item_"], [class*=" item_"])[class*="active_"] [class*="body-md"] {
     color: #fff;
 }
 
-aside[class*="sidebar_"]:has(nav[aria-label]) [class*="subnav_"] [class^="item_"][class*="active_"] {
+aside[class*="sidebar_"] > :is(nav[aria-label], [class*="fixedContent_"]) [class*="subnav_"] :is([class^="item_"], [class*=" item_"])[class*="active_"] {
     background: none;
     box-shadow: none;
     color: #000;
     text-shadow: none;
 }
 
-aside[class*="sidebar_"]:has(nav[aria-label]) [class*="subnav_"] [class^="item_"][class*="active_"] * {
+aside[class*="sidebar_"] > :is(nav[aria-label], [class*="fixedContent_"]) [class*="subnav_"] :is([class^="item_"], [class*=" item_"])[class*="active_"] * {
     color: #000;
     font-weight: 700;
 }
 
-aside[class*="sidebar_"]:has(nav[aria-label]) [class*="subnav_"] [class*="thumb_"] {
+aside[class*="sidebar_"] > :is(nav[aria-label], [class*="fixedContent_"]) [class*="subnav_"] [class*="thumb_"] {
     background: var(--mav-accent);
 }
 
